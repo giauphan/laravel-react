@@ -18,12 +18,7 @@ const Header = ({ auth, laravelVersion, phpVersion, categorys }) => {
                             </svg></a>
                                 <ul className="nc-Navigation hidden lg:flex lg:flex-wrap lg:items-center lg:space-x-1 relative">
                                     <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal  dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200 text-gray-900   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-1" aria-expanded="false" href="">Trang chủ<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
-                                        <path
-                                            fill="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            fillRule="evenodd"
-                                        ></path>
-
+                                   
                                     </svg></a></li>
                                     <li>
                                         <button
@@ -31,15 +26,15 @@ const Header = ({ auth, laravelVersion, phpVersion, categorys }) => {
                                             data-dropdown-toggle="dropdownNavbar"
                                             className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-black md:dark:hover:text-blue-500 dark:focus:text-black dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
                                         >
-                                            Dropdown{" "}
+                                            Dropdown <div className="mr-2"></div>
                                             <svg
-                                                className="w-2.5 h-2.5 ml-2.5"
+                                                className=" w-2.5 h-2.5 ml-2.5"
                                                 aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="none"
                                                 viewBox="0 0 10 6"
                                             >
-                                                <path
+                                                <path 
                                                     stroke="currentColor"
                                                     strokeLinecap="round"
                                                     strokeLinejoin="round"
@@ -70,29 +65,16 @@ const Header = ({ auth, laravelVersion, phpVersion, categorys }) => {
                                             </ul>
                                         </div>
                                     </li>
+{/* 
+                                    <li className="menu-item menu-megamenu menu-megamenu--small relative"><a className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-5" aria-expanded="false" href="=#">Giới thiệu<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
+                                      
 
-                                    <li className="menu-item menu-megamenu menu-megamenu--small relative"><a className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-5" aria-expanded="false" href="/ncmaz#">Fewer cols<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
-                                        <path
-                                            fill="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            fillRule="evenodd"
-                                        ></path>
-
+                                    </svg></a></li> */}
+                                    <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-7" aria-expanded="false" href="#">Liên hệ<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
+                                       
                                     </svg></a></li>
-                                    <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-7" aria-expanded="false" href="/ncmaz#">Templates<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
-                                        <path
-                                            fill="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            fillRule="evenodd"
-                                        ></path>
-
-                                    </svg></a></li>
-                                    <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-9" aria-expanded="false" href="/ncmaz#">Other pages<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
-                                        <path
-                                            fill="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            fillRule="evenodd"
-                                        ></path>
+                                    <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-9" aria-expanded="false" href="=#">Giới thiệu<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
+                                       
 
                                     </svg></a></li>
                                 </ul>

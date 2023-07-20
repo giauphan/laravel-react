@@ -14262,7 +14262,7 @@ readers do not read off random characters that represent icons */
     font-weight: normal;
     font-display: auto;
     src: url("/ncmaz/src/fonts/line-awesome-1.3.0/fonts/la-brands-400.eot");
-    src: url("/ncmaz/src/fonts/line-awesome-1.3.0/fonts/la-brands-400.eot?#iefix") format("embedded-opentype"), url("/ncmaz/src/fonts/line-awesome-1.3.0/fonts/la-brands-400.woff2") format("woff2"), url("/ncmaz/src/fonts/line-awesome-1.3.0/fonts/la-brands-400.woff") format("woff"), url("/ncmaz/src/fonts/line-awesome-1.3.0/fonts/la-brands-400.ttf") format("truetype"), url("/ncmaz/src/fonts/line-awesome-1.3.0/fonts/la-brands-400.svg#lineawesome") format("svg");
+    src: url("/ncmaz/src/fonts/line-awesome-1.3.0/fonts/la-brands-400.eot?#iefix") format("embedded-opentype"), url("/ncmaz/src/fonts/line-awesome-1.3.0/fonts/la-brands-400.woff2") format("woff2"), url("/fonts/line-awesome-1.3.0/fonts/la-brands-400.woff") format("woff"), url("/ncmaz/src/fonts/line-awesome-1.3.0/fonts/la-brands-400.ttf") format("truetype"), url("/ncmaz/src/fonts/line-awesome-1.3.0/fonts/la-brands-400.svg#lineawesome") format("svg");
 }
 
 .lab {

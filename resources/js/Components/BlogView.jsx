@@ -1,6 +1,6 @@
 import React from "react";
 const BlogView = ({ Blogs }) => {
-    console.log(Blogs);
+
     return (
         <>
             {Blogs.data.map((view, index) => (
