@@ -1,0 +1,39 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     * `id`, `lang`, `tieuDe`, `tomTat`, `urlHinh`, `ngayDang`, `noiDung`, `idLT`, `xem`, `noiBat`, `anHien`, `tags`
+     */
+    public function up(): void
+    {
+        Schema::create('tin', function (Blueprint $table) {
+            $table->id();
+            $table->string('lang');
+            $table->string('tieuDe');
+            $table->string('tomTat');
+            $table->string('urlHinh');
+            $table->string('ngayDang');
+            $table->string('noiDung');
+            $table->bigInteger('idLT');
+            $table->integer('xem');
+            $table->string('noiBat');
+            $table->integer('anHien');
+            $table->string('tags');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('tin');
+    }
+};

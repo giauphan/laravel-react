@@ -15,6 +15,8 @@
     <link rel="icon" type="image/svg+xml" href="/ncmaz/src/favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Home || Blog Magazine React Template</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
     <style type="text/css">
         .glide {
             position: relative;
@@ -17148,78 +17150,105 @@ readers do not read off random characters that represent icons */
 </head>
 
 <body>
-    <div class="nc-WidgetCategories rounded-3xl  overflow-hidden bg-neutral-100 dark:bg-neutral-800"
-        data-nc-id="WidgetCategories">
-        <div class="nc-WidgetHeading1 flex items-center justify-between p-4 xl:p-5 border-b border-neutral-200 dark:border-neutral-700 "
-            data-nc-id="WidgetHeading1">
-            <h2 class="text-lg text-neutral-900 dark:text-neutral-100 font-semibold flex-grow">✨ Trending topic</h2><a
-                class="flex-shrink-0 block text-primary-700 dark:text-primary-500 font-semibold text-sm"
-                rel="noopener noreferrer" href="/ncmaz/">View all</a>
+
+
+    <nav class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900">
+        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+            <a href="https://flowbite.com" class="flex items-center">
+                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+            </a>
+            <button data-collapse-toggle="mega-menu-full" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="mega-menu-full" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div id="mega-menu-full"
+                class="items-center justify-between font-medium hidden w-full md:flex md:w-auto md:order-1">
+                <ul
+                    class="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="#"
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+                            aria-current="page">Home</a>
+                    </li>
+                    <li><button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+                            class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-black md:dark:hover:text-blue-500 dark:focus:text-black dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Dropdown
+                            <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4"></path>
+                            </svg></button>
+                        <div id="dropdownNavbar"
+                            class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
+                                aria-labelledby="dropdownLargeButton">
+                                <li><a href="/category/3"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Du
+                                        lịch</a></li>
+                                <li><a href="/category/9"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Xã
+                                        hội</a></li>
+                                <li><a href="/category/4"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Khoa
+                                        học</a></li>
+                                <li><a href="/category/85"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sức
+                                        khỏe 2</a></li>
+                                <li><a href="/category/24"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mẹo
+                                        vặt</a></li>
+                                <li><a href="/category/52"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">People</a>
+                                </li>
+                                <li><a href="/category/79"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sức
+                                        khỏe</a></li>
+                                <li><a href="/category/54"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Education</a>
+                                </li>
+                                <li><a href="/category/71"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Environment</a>
+                                </li>
+                                <li><a href="/category/69"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Property
+                                        News</a></li>
+                                <li><a href="/category/12"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sống
+                                        đẹp</a></li>
+                                <li><a href="/category/72"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Financial
+                                        Markets</a></li>
+                                <li><a href="/category/74"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Tourism
+                                        News</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Marketplace</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Resources</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="flow-root">
-            <div class="flex flex-col divide-y divide-neutral-200 dark:divide-neutral-700"><a
-                    class="nc-CardCategory1 flex items-center p-4 xl:p-5 hover:bg-neutral-200 dark:hover:bg-neutral-700"
-                    data-nc-id="CardCategory1" href="/ncmaz/archive/the-demo-archive-slug">
-                    <div class="nc-NcImage flex-shrink-0 w-12 h-12 rounded-lg mr-4 overflow-hidden"
-                        data-nc-id="NcImage"><img
-                            src="https://images.unsplash.com/photo-1491406213019-05b162a72c20?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80"
-                            class="object-cover w-full h-full" alt="nc-imgs"></div>
-                    <div>
-                        <h2 class="text-base nc-card-title text-neutral-900 dark:text-neutral-100 font-semibold">Tools
-                        </h2><span class="text-xs block mt-[2px] text-neutral-500 dark:text-neutral-400">21
-                            Articles</span>
-                    </div>
-                </a><a
-                    class="nc-CardCategory1 flex items-center p-4 xl:p-5 hover:bg-neutral-200 dark:hover:bg-neutral-700"
-                    data-nc-id="CardCategory1" href="/ncmaz/archive/the-demo-archive-slug">
-                    <div class="nc-NcImage flex-shrink-0 w-12 h-12 rounded-lg mr-4 overflow-hidden"
-                        data-nc-id="NcImage"><img
-                            src="https://images.unsplash.com/photo-1528297506728-9533d2ac3fa4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80"
-                            class="object-cover w-full h-full" alt="nc-imgs"></div>
-                    <div>
-                        <h2 class="text-base nc-card-title text-neutral-900 dark:text-neutral-100 font-semibold">
-                            Automotive</h2><span
-                            class="text-xs block mt-[2px] text-neutral-500 dark:text-neutral-400">16 Articles</span>
-                    </div>
-                </a><a
-                    class="nc-CardCategory1 flex items-center p-4 xl:p-5 hover:bg-neutral-200 dark:hover:bg-neutral-700"
-                    data-nc-id="CardCategory1" href="/ncmaz/archive/the-demo-archive-slug">
-                    <div class="nc-NcImage flex-shrink-0 w-12 h-12 rounded-lg mr-4 overflow-hidden"
-                        data-nc-id="NcImage"><img
-                            src="https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80"
-                            class="object-cover w-full h-full" alt="nc-imgs"></div>
-                    <div>
-                        <h2 class="text-base nc-card-title text-neutral-900 dark:text-neutral-100 font-semibold">Toys
-                        </h2><span class="text-xs block mt-[2px] text-neutral-500 dark:text-neutral-400">25
-                            Articles</span>
-                    </div>
-                </a><a
-                    class="nc-CardCategory1 flex items-center p-4 xl:p-5 hover:bg-neutral-200 dark:hover:bg-neutral-700"
-                    data-nc-id="CardCategory1" href="/ncmaz/archive/the-demo-archive-slug">
-                    <div class="nc-NcImage flex-shrink-0 w-12 h-12 rounded-lg mr-4 overflow-hidden"
-                        data-nc-id="NcImage"><img
-                            src="https://images.unsplash.com/photo-1498049794561-7780e7231661?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80"
-                            class="object-cover w-full h-full" alt="nc-imgs"></div>
-                    <div>
-                        <h2 class="text-base nc-card-title text-neutral-900 dark:text-neutral-100 font-semibold">
-                            Outdoors</h2><span class="text-xs block mt-[2px] text-neutral-500 dark:text-neutral-400">14
-                            Articles</span>
-                    </div>
-                </a><a
-                    class="nc-CardCategory1 flex items-center p-4 xl:p-5 hover:bg-neutral-200 dark:hover:bg-neutral-700"
-                    data-nc-id="CardCategory1" href="/ncmaz/archive/the-demo-archive-slug">
-                    <div class="nc-NcImage flex-shrink-0 w-12 h-12 rounded-lg mr-4 overflow-hidden"
-                        data-nc-id="NcImage"><img
-                            src="https://images.unsplash.com/photo-1512686096451-a15c19314d59?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80"
-                            class="object-cover w-full h-full" alt="nc-imgs"></div>
-                    <div>
-                        <h2 class="text-base nc-card-title text-neutral-900 dark:text-neutral-100 font-semibold">Health
-                        </h2><span class="text-xs block mt-[2px] text-neutral-500 dark:text-neutral-400">4
-                            Articles</span>
-                    </div>
-                </a></div>
-        </div>
-    </div>
+
+    </nav>
+
+
 </body>
 
 </html>

@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\client\Blog;
+use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -16,19 +17,15 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-       
-    ]);
+Route::get('/',[HomeController::class,'index'])->name('HomePage');
+// Route::get('/blog', [Blog::class, 'index']);
+Route::get('/blog/{id}', [Blog::class, 'BlogDescription'])->name('Blog.description');
+Route::get('/category/{id}', [Blog::class, 'BlogCategory'])->name('Blog.BlogCategory');
+Route::get('/te',function(){
+    return view('footer_only');
 });
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//admin
+Route::get('/dashboard', [DashBoardController::class,"index"])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

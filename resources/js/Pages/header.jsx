@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from '@inertiajs/react';
-const Header = ({ auth, laravelVersion, phpVersion }) => {
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import 'flowbite';
+const Header = ({ auth, laravelVersion, phpVersion, categorys }) => {
     return (
         <header>
             <div className="nc-Header nc-will-change-top top-0 w-full left-0 right-0 z-40 transition-all" >
@@ -14,7 +17,7 @@ const Header = ({ auth, laravelVersion, phpVersion }) => {
                                 <path d="M11.3624 5.68181C11.3624 8.81959 8.81838 11.3636 5.6806 11.3636C2.54281 11.3636 0 8.81959 0 5.68181C0 2.54402 2.54281 0 5.6806 0C8.81838 0 11.3624 2.54402 11.3624 5.68181Z" fill="currentColor"></path>
                             </svg></a>
                                 <ul className="nc-Navigation hidden lg:flex lg:flex-wrap lg:items-center lg:space-x-1 relative">
-                                    <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal  dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200 text-gray-900   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-1" aria-expanded="false" href="">Home<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
+                                    <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal  dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200 text-gray-900   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-1" aria-expanded="false" href="">Trang chủ<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
                                         <path
                                             fill="evenodd"
                                             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -22,14 +25,52 @@ const Header = ({ auth, laravelVersion, phpVersion }) => {
                                         ></path>
 
                                     </svg></a></li>
-                                    <li className="menu-item menu-megamenu menu-megamenu--large"><a className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-3" aria-expanded="true" href="/ncmaz#">Five cols<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
-                                        <path
-                                            fill="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            fillRule="evenodd"
-                                        ></path>
+                                    <li>
+                                        <button
+                                            id="dropdownNavbarLink"
+                                            data-dropdown-toggle="dropdownNavbar"
+                                            className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-black md:dark:hover:text-blue-500 dark:focus:text-black dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                                        >
+                                            Dropdown{" "}
+                                            <svg
+                                                className="w-2.5 h-2.5 ml-2.5"
+                                                aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 10 6"
+                                            >
+                                                <path
+                                                    stroke="currentColor"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth="2"
+                                                    d="m1 1 4 4 4-4"
+                                                />
+                                            </svg>
+                                        </button>
+                                        {/* <!-- Dropdown menu --> */}
+                                        <div
+                                            id="dropdownNavbar"
+                                            className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+                                        >
+                                            <ul
+                                                className="py-2 text-sm text-gray-700 dark:text-gray-400"
+                                                aria-labelledby="dropdownLargeButton"
+                                            >
+                                                {categorys.map((list, index) => (
+                                                    <li key={list.id}>
+                                                        <a
+                                                            href={`/category/${list.id}`}
+                                                            className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                        >
+                                                            {list.ten}
+                                                        </a>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </li>
 
-                                    </svg></a></li>
                                     <li className="menu-item menu-megamenu menu-megamenu--small relative"><a className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-5" aria-expanded="false" href="/ncmaz#">Fewer cols<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
                                         <path
                                             fill="evenodd"
@@ -67,13 +108,14 @@ const Header = ({ auth, laravelVersion, phpVersion }) => {
                                 <>
                                     <div
                                         className="flex-shrink-0 flex items-center justify-end text-neutral-700 dark:text-neutral-100 space-x-1">
-                                        <div className="hidden items-center xl:flex space-x-1"><button
-                                            className="text-2xl md:text-3xl w-12 h-12 rounded-full text-neutral-700 dark:text-neutral-900 hover:bg-neutral-100   focus:outline-none flex items-center justify-center "><span
-                                                className="sr-only" _msttexthash="5262036" _msthash="6">Bật chế độ tối</span></button>
+                                        <div className="hidden items-center xl:flex space-x-1">
+                                            {/* <button
+                                                className="text-2xl md:text-3xl w-12 h-12 rounded-full text-neutral-700 dark:text-neutral-900 hover:bg-neutral-100   focus:outline-none flex items-center justify-center "><span
+                                                    className="sr-only" _msttexthash="5262036" _msthash="6">Bật chế độ tối</span></button> */}
                                             <div className="relative"><button
                                                 className="text-2xl md:text-[28px] w-12 h-12 rounded-full text-neutral-700 dark:text-neutral-900 hover:bg-neutral-100   focus:outline-none flex items-center justify-center"
                                                 id="headlessui-popover-button-11" type="button" aria-expanded="false">
-
+                                                <FontAwesomeIcon icon={faMagnifyingGlass} />
                                             </button></div>
                                             <div className="px-1"></div>
 
