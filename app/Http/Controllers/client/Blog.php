@@ -13,9 +13,9 @@ class Blog extends Controller
 {
     public function index()
     {
-        $blogPosts = BlogPost::join('loaitin', "loaitin.id", "tin.idLT ")
-            ->select("tin.id as tinID", "lang", "tieuDe", "tomTat", "urlHinh", "ngayDang", "noiDung", "idLT", "xem", "noiBat", "anHien", "tags", "loaitin.ten")
-            ->limit(10)->get();
+        $blogPosts = BlogPost::join('loaitin', 'loaitin.id', '=', 'tin.idLT')
+        ->select("tin.id as tinID", "tin.lang", "tieuDe", "tomTat", "urlHinh", "ngayDang", "noiDung", "idLT", "xem", "noiBat", "tin.anHien", "tags", "ten")
+        ->paginate(8)->withQueryString();
 
         return Inertia::render(
             'Blog',

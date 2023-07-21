@@ -17,11 +17,15 @@ export default function Modal({ children, show = false, maxWidth = '2xl', closea
     }[maxWidth];
 
     return (
-        <Transition show={show} as={Fragment} leave="duration-200">
+        <Transition show={show} as={Fragment} leave="duration-200 ">
             <Dialog
                 as="div"
                 id="modal"
-                className="fixed inset-0 flex overflow-y-auto px-4 py-6 sm:px-0 items-center z-50 transform transition-all"
+                className="fixed justify-center w-400 inset-0 flex overflow-y-auto px-4 py-6 sm:px-0 items-center z-50 transform transition-all m-auto"
+                animate={{
+                    mount: { scale: 1, y: 0 },
+                    unmount: { scale: 0.9, y: -100 },
+                  }}
                 onClose={close}
             >
                 <Transition.Child
@@ -46,7 +50,7 @@ export default function Modal({ children, show = false, maxWidth = '2xl', closea
                     leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
                     <Dialog.Panel
-                        className={`mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:mx-auto ${maxWidthClass}`}
+                        className={`m-auto  mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:mx-auto ${maxWidthClass}`} style={{minWidth:"800px"}}
                     >
                         {children}
                     </Dialog.Panel>

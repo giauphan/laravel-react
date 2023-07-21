@@ -1,3 +1,4 @@
+import formatDate from '@/Components/FormartTime';
 import React from 'react';
 
 const BlogPage = ({ blogPosts }) => {
@@ -28,7 +29,7 @@ const BlogPage = ({ blogPosts }) => {
                                     href={`/blog/${post.tinID}`}>
 
                                 </a><span className="text-neutral-500 dark:text-neutral-400 mx-[6px] font-medium">·</span><span
-                                    className="text-neutral-500 dark:text-neutral-400 font-normal">{post.ngayDang}</span></div>
+                                    className="text-neutral-500 dark:text-neutral-400 font-normal">{formatDate(post.ngayDang)}</span></div>
                         </div>
                         <div className="flex items-center flex-wrap justify-between mt-auto">
                             <div className="nc-PostCardLikeAndComment flex items-center space-x-2 "

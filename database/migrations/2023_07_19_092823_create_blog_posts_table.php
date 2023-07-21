@@ -14,17 +14,17 @@ return new class extends Migration
     {
         Schema::create('tin', function (Blueprint $table) {
             $table->id();
-            $table->string('lang');
+            $table->string('lang')->default('vi');
             $table->string('tieuDe');
-            $table->string('tomTat');
+            $table->string('tomTat')->nullable();
             $table->string('urlHinh');
             $table->string('ngayDang');
             $table->string('noiDung');
             $table->bigInteger('idLT');
-            $table->integer('xem');
-            $table->string('noiBat');
-            $table->integer('anHien');
-            $table->string('tags');
+            $table->integer('xem')->default(0);
+            $table->string('noiBat')->default(0);
+            $table->integer('anHien')->default(1);
+            $table->string('tags')->nullable();
             $table->timestamps();
         });
     }

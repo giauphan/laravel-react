@@ -29,9 +29,9 @@ export default function Register() {
     return (
         <GuestLayout>
             <Head title="Register" />
-            <header class="text-center max-w-2xl mx-auto">
-                <h2 class="flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900  justify-center"><span class="mr-4 text-3xl md:text-4xl leading-none">🎉</span>Sign up</h2>
-                <span class="block text-sm mt-2 text-neutral-700 sm:text-base ">Chào mừng đến với cộng đồng tạp chí blog của chúng tôi</span>
+            <header className="text-center max-w-2xl mx-auto">
+                <h2 className="flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900  justify-center"><span className="mr-4 text-3xl md:text-4xl leading-none">🎉</span>Sign up</h2>
+                <span className="block text-sm mt-2 text-neutral-700 sm:text-base ">Chào mừng đến với cộng đồng tạp chí blog của chúng tôi</span>
             </header>
 
             <div className="p-5 mx-auto bg-white rounded-[40px] shadow-lg sm:p-10 mt-10 lg:mt-20 lg:p-16 ">

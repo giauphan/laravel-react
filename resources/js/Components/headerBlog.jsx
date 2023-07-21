@@ -1,9 +1,9 @@
 import React from "react";
+import formatDate from "./FormartTime";
 
 const HeaderBlog = ({BlogID}) => {
     return (
         <>
-
             <header className="relative pt-16 z-10 md:py-20 lg:py-28 bg-neutral-900 dark:bg-black">
                 <div className="dark container relative z-10">
                     <div className="max-w-screen-md">
@@ -17,7 +17,6 @@ const HeaderBlog = ({BlogID}) => {
                                     {/* <a
                                         className="transition-colors hover:text-white duration-300 nc-Badge relative inline-flex px-2.5 py-1 rounded-full font-medium text-xs  text-red-800 bg-red-100 hover:bg-red-800"
                                         href="/ncmaz/archive/the-demo-archive-slug">Jewelry</a> */}
-
                                 </div>
                                 <h1 className=" text-neutral-900 font-semibold text-3xl md:text-4xl md:!leading-[120%] lg:text-5xl dark:text-neutral-100 max-w-4xl "
                                     title="Quiet ingenuity: 120,000 lunches and counting">{BlogID.tieuDe}</h1>
@@ -30,7 +29,7 @@ const HeaderBlog = ({BlogID}) => {
                                         <div className="ml-3">
 
                                             <div className="text-xs mt-[6px]"><span
-                                                className="text-neutral-700 dark:text-neutral-300 ">{BlogID.ngayDang}</span><span
+                                                className="text-neutral-700 dark:text-neutral-300 ">{formatDate(BlogID.ngayDang)}</span><span
                                                     className="mx-2 font-semibold">·</span></div>
                                         </div>
                                     </div>

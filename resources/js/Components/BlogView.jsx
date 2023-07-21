@@ -1,4 +1,5 @@
 import React from "react";
+import formatDate from "./FormartTime";
 const BlogView = ({ Blogs }) => {
 
     return (
@@ -24,7 +25,7 @@ const BlogView = ({ Blogs }) => {
                     <div className="p-4 flex flex-col flex-grow space-y-3">
                         <div className="nc-PostCardMeta inline-flex items-center flex-wrap text-neutral-800 dark:text-neutral-200 text-xs leading-none"
                             data-nc-id="PostCardMeta"><span
-                                className="text-neutral-500 dark:text-neutral-400 font-normal">May 20, 2021</span></div>
+                                className="text-neutral-500 dark:text-neutral-400 font-normal">{formatDate(view.ngayDang)}</span></div>
                         <h2 className="nc-card-title block text-base font-semibold text-neutral-900 dark:text-neutral-100 "><a
                             className="line-clamp-2" title="Lenovo’s smarter devices stoke professional passions "
                               href={`/blog/${view.id}`}>{view.tieuDe} </a>

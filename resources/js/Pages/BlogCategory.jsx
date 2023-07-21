@@ -24,7 +24,7 @@ const Blogcategory = ({ auth, categoryOne, blogPosts ,category}) => {
                         
                     </div>
                     <div className="mt-10"> 
-                    <Pagination blogPosts={blogPosts}/>
+                    <Pagination blogPosts={blogPosts} path="category"/>
                     </div>
                    
                 </div>

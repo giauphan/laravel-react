@@ -23,14 +23,13 @@ export default function Login({ auth, status, canResetPassword }) {
 
     const submit = (e) => {
         e.preventDefault();
-
         post(route('login'));
     };
 
     return (
         <GuestLayout>
             <Head title="Log in" />
-            <header class="text-center max-w-2xl mx-auto"><h2 class="flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900  justify-center"><span class="mr-4 text-3xl md:text-4xl leading-none">🔑</span>Đăng nhập</h2><span class="block text-sm mt-2 text-neutral-700 sm:text-base dark:text-neutral-400"></span></header>
+            <header className="text-center max-w-2xl mx-auto"><h2 className="flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900  justify-center"><span className="mr-4 text-3xl md:text-4xl leading-none">🔑</span>Đăng nhập</h2><span className="block text-sm mt-2 text-neutral-700 sm:text-base dark:text-neutral-400"></span></header>
             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
             <div className="p-5 mx-auto bg-white rounded-[40px] shadow-lg sm:p-10 mt-10 lg:mt-20 lg:p-16 ">
                 <form onSubmit={submit} className='max-w-md mx-auto space-y-6'>

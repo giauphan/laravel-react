@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from '@inertiajs/react';
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Dropdown from '@/Components/Dropdown';
+
 import 'flowbite';
 const Header = ({ auth, laravelVersion, phpVersion, categorys }) => {
     return (
@@ -18,9 +20,9 @@ const Header = ({ auth, laravelVersion, phpVersion, categorys }) => {
                             </svg></a>
                                 <ul className="nc-Navigation hidden lg:flex lg:flex-wrap lg:items-center lg:space-x-1 relative">
                                     <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal  dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200 text-gray-900   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-1" aria-expanded="false" href="">Trang chủ<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
-                                   
+
                                     </svg></a></li>
-                                    <li>
+                                    {/* <li>
                                         <button
                                             id="dropdownNavbarLink"
                                             data-dropdown-toggle="dropdownNavbar"
@@ -43,7 +45,7 @@ const Header = ({ auth, laravelVersion, phpVersion, categorys }) => {
                                                 />
                                             </svg>
                                         </button>
-                                        {/* <!-- Dropdown menu --> */}
+                                       
                                         <div
                                             id="dropdownNavbar"
                                             className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
@@ -64,28 +66,61 @@ const Header = ({ auth, laravelVersion, phpVersion, categorys }) => {
                                                 ))}
                                             </ul>
                                         </div>
-                                    </li>
-{/* 
+                                    </li> */}
+                                    {/* 
                                     <li className="menu-item menu-megamenu menu-megamenu--small relative"><a className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-5" aria-expanded="false" href="=#">Giới thiệu<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
                                       
 
                                     </svg></a></li> */}
                                     <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-7" aria-expanded="false" href="#">Liên hệ<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
-                                       
+
                                     </svg></a></li>
                                     <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-9" aria-expanded="false" href="=#">Giới thiệu<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
-                                       
+
 
                                     </svg></a></li>
                                 </ul>
                             </div>
                             {auth?.user ? (
-                                <Link
-                                    href={route('dashboard')}
+                                <p
+                                    href=""
                                     className="font-semibold text-gray-900 hover:text-gray-900 dark:text-gray-400  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                                 >
-                                    Dashboard
-                                </Link>
+                                    <div className="ml-3 relative">
+                                        <Dropdown>
+                                            <Dropdown.Trigger>
+                                                <span className="inline-flex rounded-md">
+                                                    <button
+                                                        type="button"
+                                                        className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                    >
+                                                        {auth?.user?.name}
+
+                                                        <svg
+                                                            className="ml-2 -mr-0.5 h-4 w-4"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            viewBox="0 0 20 20"
+                                                            fill="currentColor"
+                                                        >
+                                                            <path
+                                                                fillRule="evenodd"
+                                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                                clipRule="evenodd"
+                                                            />
+                                                        </svg>
+                                                    </button>
+                                                </span>
+                                            </Dropdown.Trigger>
+
+                                            <Dropdown.Content>
+                                                <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
+                                                <Dropdown.Link href={route('logout')} method="post" as="button">
+                                                    Log Out
+                                                </Dropdown.Link>
+                                            </Dropdown.Content>
+                                        </Dropdown>
+                                    </div>
+                                </p>
                             ) : (
                                 <>
                                     <div

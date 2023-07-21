@@ -119,7 +119,7 @@ export default function Authenticated({ user, header, children }) {
                 </header>
             )}
 
-            <main>{children}</main>
+            <main className='container mt-10 mb-10'>{children}</main>
         </div>
     );
 }
