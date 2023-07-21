@@ -19,20 +19,21 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/',[HomeController::class,'index'])->name('HomePage');
+Route::get('/', [HomeController::class, 'index'])->name('HomePage');
 // Route::get('/blog', [Blog::class, 'index']);
 Route::get('/blog/{id}', [Blog::class, 'BlogDescription'])->name('Blog.description');
 Route::get('/category/{id}', [Blog::class, 'BlogCategory'])->name('Blog.BlogCategory');
-Route::get('/te',function(){
+Route::get('/te', function () {
     return view('footer_only');
 });
 //admin
-Route::get('/admin', [DashBoardController::class,"index"])->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::get('/admin', [DashBoardController::class, "index"])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashBoardController::class, "index"])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/blog/destroy/{id}', [BlogPost::class, "destroy"])->middleware('auth')->name('destroy');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

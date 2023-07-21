@@ -1,26 +1,30 @@
-import React from 'react';
-import { Head, Link, useForm } from '@inertiajs/react';
+import React, { useState } from 'react';
+import { Head, Link, router, useForm } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
 
 const PostBlog = ({ csrfToken }) => {
-    const { data, setData, post } = useForm({
-        title: '',
-        tomtat: '',
-        noidung: '',
+    const [values, setValues] = useState({
         hinh: null,
+        title: "",
+        tomtat: "",
+        content: "",
     });
-console.log(csrfToken);
-    // const handleChange = (e) => {
-    //     const { name, value, files } = e.target;
 
-    //     setData((prevState) => ({
-    //         ...prevState,
-    //         [name]: files ? files[0] : value,
-    //     }));
-    // };
+    const handleChange = (e) => {
+        const { name, value, files } = e.target;
+        setValues((prevState) => ({
+            ...prevState,
+            [name]: name === 'hinh' ? files[0] : value,
+        }));
+    };
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        router.post('/post/blog', values);
+    }
 
     return (
-        <form className="container mt-10 mb-10 border-spacing-9" method='post' action='/post/blog'>
+        <form className="container mt-10 mb-10 border-spacing-9" onSubmit={handleSubmit}>
             <input type="hidden" name="_token" value={csrfToken} />
             <div className="mb-6">
                 <label htmlFor="hinh" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -30,10 +34,8 @@ console.log(csrfToken);
                     type="file"
                     id="hinh"
                     name="hinh"
-
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={data.hinh}
-                    onChange={(e) => setData('hinh', e.target.value)}
+                    onChange={handleChange}
                     required
                 />
             </div>
@@ -45,11 +47,10 @@ console.log(csrfToken);
                     type="text"
                     id="title"
                     name="title"
-                    value={data.title}
-                    onChange={(e) => setData('title', e.target.value)}
+                    value={values.title}
+                    onChange={handleChange}
                     className="mt-1 block w-full p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     autoComplete="title"
-
                     required
                 />
             </div>
@@ -61,11 +62,10 @@ console.log(csrfToken);
                     type="text"
                     id="tomtat"
                     name="tomtat"
-                    value={data.tomtat}
-                    onChange={(e) => setData('tomtat', e.target.value)}
+                    value={values.tomtat}
+                    onChange={handleChange}
                     className="mt-1 block w-full p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     autoComplete="tomtat"
-
                     required
                 />
             </div>
@@ -76,11 +76,10 @@ console.log(csrfToken);
                 <textarea
                     id="noidung"
                     name="content"
-                    value={data.noidung}
-                    onChange={(e) => setData('noidung', e.target.value)}
+                    value={values.content}
+                    onChange={handleChange}
                     className="mt-1 block w-full p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     rows="10"
-
                     required
                 ></textarea>
             </div>

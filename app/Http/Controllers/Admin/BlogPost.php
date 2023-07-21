@@ -29,21 +29,24 @@ class BlogPost extends Controller
      */
     public function store(Request $request)
     {
-      
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-            'hinh' => 'required',
-            'tomtat' => 'required',
-        ]);
 
+        // $request->validate([
+        //     'title' => 'required',
+        //     'content' => 'required',
+        //     'hinh' => 'required|image',
+        //     'tomtat' => 'required',
+        // ]);
+        $file = $request->file('hinh');
+        $imageName = $file->hashName();
+        $imagePath = 'assets/images/' . $imageName;
+        $file->move(public_path('assets/images'), $imageName);
         $data = [
-            'tieuDe'=>$request->title,
-             'tomTat'=>$request->tomtat,
-              'urlHinh'=>$request->hinh, 
-              'ngayDang'=>now() , 
-              'noiDung'=>$request->content,
-               'idLT'=>3,
+            'tieuDe' => $request->title,
+            'tomTat' => $request->tomtat,
+            'urlHinh' =>       $imagePath,
+            'ngayDang' => now(),
+            'noiDung' => $request->content,
+            'idLT' => 3,
         ];
 
         ModelsBlogPost::create($data);
@@ -81,6 +84,8 @@ class BlogPost extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $blog = ModelsBlogPost::findOrFail($id);
+        $blog->delete();
+        return redirect()->back()->with('success', 'sản phẩm đã được xóa thành công');
     }
 }
