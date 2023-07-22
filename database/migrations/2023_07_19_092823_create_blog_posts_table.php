@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('tomTat')->nullable();
             $table->string('urlHinh');
             $table->string('ngayDang');
-            $table->string('noiDung');
+            $table->longText('noiDung');
             $table->bigInteger('idLT');
             $table->integer('xem')->default(0);
             $table->string('noiBat')->default(0);

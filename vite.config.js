@@ -8,6 +8,16 @@ export default defineConfig({
             input: 'resources/js/app.jsx',
             refresh: true,
         }),
+        VitePWA(),
         react(),
     ],
+    resolve: {
+        alias: {
+            // Your CKEditor 5 editor import alias
+            '@ckeditor/ckeditor5-editor-classic': resolve(
+                __dirname,
+                'node_modules/@ckeditor/ckeditor5-editor-classic/src/classiceditor'
+            ),
+        },
+    }
 });

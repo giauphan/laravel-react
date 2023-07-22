@@ -9,6 +9,7 @@ import {
 } from "@material-tailwind/react";
 import Modal from './Modal';
 import PostBlog from './FormBlog';
+import Ckedit from './Ckedit';
 
 const HomeAdmin = ({ Blog, token }) => {
 
@@ -133,7 +134,9 @@ const HomeAdmin = ({ Blog, token }) => {
             <footer className='mt-10 h-14'>
 
             </footer>
-
+            {/* // */}
+            asd
+            <Ckedit />
         </>
     )
 };
