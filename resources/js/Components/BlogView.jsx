@@ -11,7 +11,7 @@ const BlogView = ({ Blogs }) => {
                         <div>
                             <div className="nc-PostFeaturedMedia relative  w-full h-full " data-nc-id="PostFeaturedMedia">
                                 <div className="nc-NcImage absolute inset-0" data-nc-id="NcImage"><img
-                                    src={`/${view.urlHinh}`}
+                                    src={`${view.urlHinh}`}
                                     className="object-cover w-full h-full" alt="nc-imgs" /></div>
                                 <div className="absolute inset-0"></div>
                             </div>

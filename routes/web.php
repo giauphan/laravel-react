@@ -6,7 +6,6 @@ use App\Http\Controllers\client\Blog;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +25,12 @@ Route::get('/category/{id}', [Blog::class, 'BlogCategory'])->name('Blog.BlogCate
 Route::get('/te', function () {
     return view('footer_only');
 });
+
 //admin
-Route::get('/admin', [DashBoardController::class, "index"])->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/dashboard', [DashBoardController::class, "index"])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/admin', [DashBoardController::class, "index"])->middleware(['auth', 'verified', 'UsersRole'])->name('dashboard');
+Route::get('/dashboard', [DashBoardController::class, "index"])->middleware(['auth', 'verified', 'UsersRole'])->name('dashboard');
+
+
 Route::get('/blog/destroy/{id}', [BlogPost::class, "destroy"])->middleware('auth')->name('destroy');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -47,7 +47,7 @@ class Blog extends Controller
             ->select("tin.id as tinID", "tin.lang", "tieuDe", "tomTat", "urlHinh", "ngayDang", "noiDung", "idLT", "xem", "noiBat", "tin.anHien", "tags", "ten")
             ->paginate(8)->withQueryString();;
         $category = CategoryPost::where('anhien', 1)->where('id', $id)->first();
-    
+        
         return Inertia::render(
             'BlogCategory',
             [

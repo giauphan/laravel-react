@@ -7,6 +7,7 @@ import BlogView from "@/Components/BlogView";
 import Pagination from "@/Components/Pagination";
 
 const Blogcategory = ({ auth, categoryOne, blogPosts ,category}) => {
+
     return (
         <>
             <Head title="category Blog" />
@@ -24,7 +25,7 @@ const Blogcategory = ({ auth, categoryOne, blogPosts ,category}) => {
                         
                     </div>
                     <div className="mt-10"> 
-                    <Pagination blogPosts={blogPosts} path="category"/>
+                    <Pagination blogPosts={blogPosts} path="/category"/>
                     </div>
                    
                 </div>

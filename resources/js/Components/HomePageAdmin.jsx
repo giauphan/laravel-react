@@ -106,7 +106,7 @@ const HomeAdmin = ({ Blog, token }) => {
                         {Blog.data.map((list) => (
                             <tr key={list.tinID}>
                                 <td className="px-6 py-4 text-sm text-gray-900 ">
-                                    <img src={`/${list.urlHinh}`} alt="" width={100} height={50} />
+                                    <img src={`${list.urlHinh}`} alt="" width={100} height={50} />
                                 </td>
                                 <td className="px-6 py-4 text-sm text-gray-900 ">
                                     {list.tieuDe}

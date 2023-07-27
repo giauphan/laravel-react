@@ -29,7 +29,6 @@ class BlogPost extends Controller
      */
     public function store(Request $request)
     {
-
         // $request->validate([
         //     'title' => 'required',
         //     'content' => 'required',

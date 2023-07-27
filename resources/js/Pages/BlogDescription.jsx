@@ -2,14 +2,17 @@ import Blog from "@/Components/Blog";
 import NavCategory from "@/Components/NavCategory";
 import HeaderBlog from "@/Components/headerBlog";
 import { Head } from "@inertiajs/react";
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./header";
 import Footer from "./footer";
+import ImageLoader from "@/Components/ImageLoad";
 
 
 const Description = ({ blogPosts, category ,auth}) => {
+   
     return (
         <>
+       
             <Head title='chi tiết bài viết' />
             <Header auth={auth} categorys={category}/>
             <HeaderBlog BlogID={blogPosts}>
@@ -48,6 +51,7 @@ const Description = ({ blogPosts, category ,auth}) => {
                     </div>
                 </div>
             </main>
+   <ImageLoader/>
             <Footer />
         </>
     )

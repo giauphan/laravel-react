@@ -78,7 +78,7 @@ const BlogPage = ({ blogPosts }) => {
                     <div className="block flex-shrink-0 sm:w-56 sm:ml-6 rounded-3xl overflow-hidden mb-5 sm:mb-0">
                         <div className="w-full h-0 aspect-h-9 sm:aspect-h-16 aspect-w-16 ">
                             <div className="nc-NcImage absolute inset-0" data-nc-id="NcImage"><img
-                                src={`/${post.urlHinh}`}
+                                src={`${post.urlHinh}`}
                                 className="object-cover w-full h-full"
                                 alt="360-degree video: How Microsoft deployed a datacenter to the bottom of the ocean" />
                             </div><span>
