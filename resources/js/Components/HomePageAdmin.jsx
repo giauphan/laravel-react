@@ -1,18 +1,10 @@
 import React, { useState } from 'react';
 import Pagination from './Pagination';
-import {
-    Button,
-    Dialog,
-    DialogHeader,
-    DialogBody,
-    DialogFooter,
-} from "@material-tailwind/react";
 import Modal from './Modal';
 import PostBlog from './FormBlog';
-import Ckedit from './Ckedit';
+import PostBlogUpdate from './formUpdate';
 
-const HomeAdmin = ({ Blog, token }) => {
-
+const useModal = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleOpenModal = () => {
@@ -22,6 +14,28 @@ const HomeAdmin = ({ Blog, token }) => {
     const handleCloseModal = () => {
         setIsModalOpen(false);
     };
+
+    return { isModalOpen, handleOpenModal, handleCloseModal };
+};
+
+const HomeAdmin = ({ Blog, token, success }) => {
+    const { isModalOpen, handleOpenModal, handleCloseModal } = useModal();
+
+
+    const [selectedRow, setSelectedRow] = useState(null);
+
+    const handleOpenModalUpdate = (list) => {
+        setSelectedRow(list);
+    };
+
+    const handleCloseModalUpdate = () => {
+        setSelectedRow(false);
+    };
+    if (success != null) {
+        alert(success);
+    }
+
+
 
     return (
         <>
@@ -122,11 +136,41 @@ const HomeAdmin = ({ Blog, token }) => {
                                     <a href={`/blog/destroy/${list.tinID}`} className="text-black bg-red-500  focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2  focus:outline-none "> Xoá</a>
 
                                 </td>
+                                <td>
+                                    <div>
+                                        <button
+                                            onClick={() => handleOpenModalUpdate(list)}
+                                            className="block bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                            type="button"
+                                        >
+                                            sửa
+                                        </button>
+                                    </div>
+                                    {/* <Modal show={isModalOpenUpdate}>
+                                        <div className="absolute top-1 right-1">
+                                            <button
+                                                type="button"
+                                                className="inline-flex justify-center px-2 py-1 text-sm font-medium text-gray-200 bg-gray-900 border border-transparent rounded hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                                                onClick={handleCloseModalUpdate}
+                                            >
+                                                close X
+                                            </button>
+                                        </div>
+                                        <PostBlogUpdate csrfToken={token} tieuDe={currentTieuDe} tomTat={list.tomTat} />
+                                    </Modal> */}
+                                </td>
 
                             </tr>
                         ))}
                     </tbody>
                 </table>
+                {selectedRow && (
+                    <Modal show={true} onClose={handleCloseModalUpdate}>
+                        <div className="max-h-44" style={{ overflowY: "auto", height: "700px" }}>
+                            <PostBlogUpdate csrfToken={token} blogId={selectedRow.tinID} tieuDe={selectedRow.tieuDe} noiDung={selectedRow.noiDung} tomTat={selectedRow.tomTat} />
+                        </div>
+                    </Modal>
+                )}
             </div>
             <div className='mt-5'>
                 <Pagination blogPosts={Blog} path={'/admin'} />
@@ -134,9 +178,7 @@ const HomeAdmin = ({ Blog, token }) => {
             <footer className='mt-10 h-14'>
 
             </footer>
-            {/* // */}
-            asd
-            <Ckedit />
+
         </>
     )
 };

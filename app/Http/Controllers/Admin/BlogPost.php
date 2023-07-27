@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\BlogPost as ModelsBlogPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Inertia\Inertia;
 
 class BlogPost extends Controller
 {
@@ -42,12 +44,11 @@ class BlogPost extends Controller
         $data = [
             'tieuDe' => $request->title,
             'tomTat' => $request->tomtat,
-            'urlHinh' =>       $imagePath,
+            'urlHinh' =>      asset($imagePath),
             'ngayDang' => now(),
             'noiDung' => $request->content,
             'idLT' => 3,
         ];
-
         ModelsBlogPost::create($data);
 
         return redirect()->route('dashboard')
@@ -75,7 +76,31 @@ class BlogPost extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|max:255',
+            'tomtat' => 'required|string|max:255',
+            'content' => 'required|string',
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        $blog = ModelsBlogPost::find($id);
+        if ($request->hasFile('hinh')) {
+            $file = $request->file('hinh');
+            $imageName = $file->hashName();
+            $blog->urlHinh =  asset('assets/images/' . $imageName);
+            $file->move(public_path('assets/images'), $imageName);
+        }
+        $blog->tieuDe = $request->title;
+        $blog->tomTat = $request->tomtat;
+        $blog->ngayDang = now();
+        $blog->noiDung = $request->content;
+        $blog->save();
+        // return Inertia::to_route( 'Dashboard',[
+        //     'success', 'Blog created successfully.'
+        //     ]);
+        return redirect()->route('dashboard')
+            ->with('success', 'Blog created successfully.');
     }
 
     /**

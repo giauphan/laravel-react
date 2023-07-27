@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Head, Link, router, useForm } from '@inertiajs/react';
 import PrimaryButton from '@/Components/PrimaryButton';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const PostBlog = ({ csrfToken }) => {
     const [values, setValues] = useState({
@@ -20,13 +22,12 @@ const PostBlog = ({ csrfToken }) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        router.post('/post/blog', values);
+        router.post('/admin/post/blog', values);
     }
-
     return (
-        <form className="container mt-10 mb-10 border-spacing-9" onSubmit={handleSubmit}>
+        <form className="container mt-10 mb-10 border-spacing-9 max-w-screen-md" onSubmit={handleSubmit}>
             <input type="hidden" name="_token" value={csrfToken} />
-            <div className="mb-6">
+            <div className="mb-8">
                 <label htmlFor="hinh" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Hình
                 </label>
@@ -54,7 +55,7 @@ const PostBlog = ({ csrfToken }) => {
                     required
                 />
             </div>
-            <div className="mb-6">
+            <div className="mb-7">
                 <label htmlFor="tomtat" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Tóm tắt
                 </label>
@@ -69,21 +70,25 @@ const PostBlog = ({ csrfToken }) => {
                     required
                 />
             </div>
-            <div className="mb-6">
+            <div className="mb-8">
                 <label htmlFor="noidung" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Nội dung
                 </label>
-                <textarea
-                    id="noidung"
-                    name="content"
-                    value={values.content}
-                    onChange={handleChange}
-                    className="mt-1 block w-full p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    rows="10"
-                    required
-                ></textarea>
+                <CKEditor
+                    editor={ClassicEditor}
+                    data={values.content}
+                    onReady={(editor) => {
+                        // You can store the editor instance and use it if needed
+                    }}
+                    onChange={(event, editor) => {
+                        const data = editor.getData();
+                        setValues((prevState) => ({
+                            ...prevState,
+                            content: data,
+                        }));
+                    }}
+                />
             </div>
-
             <PrimaryButton className="ml-4" disabled={false /* Add any conditions for disabling the button here */}>
                 Đăng bài
             </PrimaryButton>

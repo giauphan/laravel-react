@@ -27,12 +27,17 @@ Route::get('/te', function () {
 });
 
 //admin
-Route::get('/admin', [DashBoardController::class, "index"])->middleware(['auth', 'verified', 'UsersRole'])->name('dashboard');
-Route::get('/dashboard', [DashBoardController::class, "index"])->middleware(['auth', 'verified', 'UsersRole'])->name('dashboard');
-
-
+Route::middleware(['auth', 'verified',UsersRole::class . ':1'])->group(function () {
+    Route::prefix('/admin')->group(function () {
+        Route::get('/', [DashBoardController::class, "index"])->name('dashboard');
+        // Route::get('/dashboard', [DashBoardController::class, "index"])->name('dashboard');
+        Route::post('/post/blog', [BlogPost::class, "store"])->name('blog.add');
+        Route::put('/post/blog/{id}', [BlogPost::class, "update"])->name('blog.update');
+    });
+});
 Route::get('/blog/destroy/{id}', [BlogPost::class, "destroy"])->middleware('auth')->name('destroy');
 Route::middleware('auth')->group(function () {
+  
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

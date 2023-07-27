@@ -14,7 +14,7 @@ class DashBoardController extends Controller
         $csrfToken = csrf_token();
         $blogPosts = BlogPost::join('loaitin', 'loaitin.id', '=', 'tin.idLT')
             ->select("tin.id as tinID", "tin.lang", "tieuDe", "tomTat", "urlHinh", "ngayDang", "noiDung", "idLT", "xem", "noiBat", "tin.anHien", "tags", "ten")
-            ->orderBy("tin.id","desc")
+            ->orderBy("tin.id", "desc")
             ->paginate(8)->withQueryString();
 
         return Inertia::render('Dashboard', [

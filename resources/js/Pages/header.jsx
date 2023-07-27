@@ -19,7 +19,7 @@ const Header = ({ auth, laravelVersion, phpVersion, categorys }) => {
                                 <path d="M11.3624 5.68181C11.3624 8.81959 8.81838 11.3636 5.6806 11.3636C2.54281 11.3636 0 8.81959 0 5.68181C0 2.54402 2.54281 0 5.6806 0C8.81838 0 11.3624 2.54402 11.3624 5.68181Z" fill="currentColor"></path>
                             </svg></a>
                                 <ul className="nc-Navigation hidden lg:flex lg:flex-wrap lg:items-center lg:space-x-1 relative">
-                                    <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal  dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200 text-gray-900   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-1" aria-expanded="false" href="">Trang chủ<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
+                                    <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal  dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200 text-gray-900   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-1" aria-expanded="false" href="/">Trang chủ<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
 
                                     </svg></a></li>
                                     {/* <li>
@@ -75,7 +75,7 @@ const Header = ({ auth, laravelVersion, phpVersion, categorys }) => {
                                     <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-7" aria-expanded="false" href="#">Liên hệ<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
 
                                     </svg></a></li>
-                                    <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-9" aria-expanded="false" href="=#">Giới thiệu<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
+                                    <li className="menu-item menu-dropdown relative"><a className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-900 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-200   dark:hover:text-neutral-600" rel="noopener noreferrer" id="headlessui-popover-button-9" aria-expanded="false" href="#">Giới thiệu<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="ml-1 -mr-1 h-4 w-4 text-neutral-400">
 
 
                                     </svg></a></li>

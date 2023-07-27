@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 .glide {
     position: relative;
@@ -659,9 +657,9 @@ h4 {
     --font-body: "Noto Sans Arabic";
 }
 
-.root {
+/* .root {
     overflow: hidden;
-}
+} */
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hiddenScrollbar::-webkit-scrollbar {
@@ -3900,7 +3898,7 @@ select {
     --tw-divide-opacity: 1;
     border-color: rgba(var(--c-neutral-200), var(--tw-divide-opacity));
 }
-
+/* 
 .overflow-auto {
     overflow: auto;
 }
@@ -3915,7 +3913,7 @@ select {
 
 .overflow-y-auto {
     overflow-y: auto;
-}
+} */
 
 .truncate {
     overflow: hidden;
@@ -17140,4 +17138,8 @@ x-vue-echarts {
 .active > a{
     background-color: #000!important;
     color: #fff!important;
+}
+
+:host ::ng-deep .ck-editor__editable_inline {
+    min-height: 500px;
 }

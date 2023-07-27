@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class UsersRole
@@ -13,15 +14,16 @@ class UsersRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, ...$roles)
     {
-        $user = $request->Auth::user();
-        if ( $user &&  $user->role == 1) {
-           return redirect()->route('dashboard');
-        }else{
+        $user = $request->user();
+        if ($user && in_array($user->role, $roles)) {
             return $next($request);
         }
-
-      
+        if ($request->routeIs('login')) {
+            // Handle unauthorized access differently, such as showing an error message or redirecting to another page
+            return $next($request);
+        }
+        return redirect()->route('login');
     }
 }
