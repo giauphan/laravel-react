@@ -2,7 +2,7 @@ import HomeAdmin from '@/Components/HomePageAdmin';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
-export default function Dashboard({ auth ,blog,token}) {
+export default function Dashboard({ auth ,blog,token, success= null ,errors,input =null}) {
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -10,7 +10,7 @@ export default function Dashboard({ auth ,blog,token}) {
             >
             <Head title="Dashboard" />
 
-          <HomeAdmin Blog={blog} token={token}/>
+          <HomeAdmin Blog={blog} token={token}  success={success} errors={errors} input={input}/>
         </AuthenticatedLayout>
     );
 }

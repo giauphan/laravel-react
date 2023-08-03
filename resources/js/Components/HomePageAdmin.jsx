@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Pagination from './Pagination';
 import Modal from './Modal';
 import PostBlog from './FormBlog';
-import PostBlogUpdate from './formUpdate';
+import AddBlog from './formAddBlog';
 
 const useModal = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,7 +18,7 @@ const useModal = () => {
     return { isModalOpen, handleOpenModal, handleCloseModal };
 };
 
-const HomeAdmin = ({ Blog, token, success }) => {
+const HomeAdmin = ({ Blog, token, success ,errors,input}) => {
     const { isModalOpen, handleOpenModal, handleCloseModal } = useModal();
 
 
@@ -31,10 +31,21 @@ const HomeAdmin = ({ Blog, token, success }) => {
     const handleCloseModalUpdate = () => {
         setSelectedRow(false);
     };
-    if (success != null) {
-        alert(success);
+    const [values, setValues] = useState({
+        hinh: 'd',
+        title: '',
+        tomTat: '',
+        content: '',
+    });
+    if (errors.length > 0) {
+        setValues({
+            ...values,
+            hinh: errors.hinh,
+          });
+// console.log(success);
     }
-
+    console.log(values.hinh);
+    console.log(errors.length);
 
 
     return (
@@ -91,7 +102,7 @@ const HomeAdmin = ({ Blog, token, success }) => {
 
                         <button type="submit" className="text-black bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 hover:text-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
                     </form> */}
-                    <PostBlog csrfToken={token} />
+                    <AddBlog csrfToken={token} />
 
                 </Modal>
                 <hr className="mt-5 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
@@ -166,8 +177,9 @@ const HomeAdmin = ({ Blog, token, success }) => {
                 </table>
                 {selectedRow && (
                     <Modal show={true} onClose={handleCloseModalUpdate}>
+                        <h1>Home</h1>
                         <div className="max-h-44" style={{ overflowY: "auto", height: "700px" }}>
-                            <PostBlogUpdate csrfToken={token} blogId={selectedRow.tinID} tieuDe={selectedRow.tieuDe} noiDung={selectedRow.noiDung} tomTat={selectedRow.tomTat} />
+                            <PostBlog csrfToken={token} blogId={selectedRow.tinID} tieuDe={selectedRow.tieuDe} noiDung={selectedRow.noiDung} tomTat={selectedRow.tomTat} />
                         </div>
                     </Modal>
                 )}

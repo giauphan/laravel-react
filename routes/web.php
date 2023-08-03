@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BlogPost;
+use App\Http\Controllers\Admin\category;
 use App\Http\Controllers\Admin\DashBoardController;
 use App\Http\Controllers\client\Blog;
 use App\Http\Controllers\client\HomeController;
@@ -27,17 +28,20 @@ Route::get('/te', function () {
 });
 
 //admin
-Route::middleware(['auth', 'verified',UsersRole::class . ':1'])->group(function () {
+Route::middleware(['auth', 'verified', UsersRole::class . ':1'])->group(function () {
     Route::prefix('/admin')->group(function () {
         Route::get('/', [DashBoardController::class, "index"])->name('dashboard');
         // Route::get('/dashboard', [DashBoardController::class, "index"])->name('dashboard');
         Route::post('/post/blog', [BlogPost::class, "store"])->name('blog.add');
         Route::put('/post/blog/{id}', [BlogPost::class, "update"])->name('blog.update');
+        Route::get('/category', [category::class, "index"])->name('category');
+        Route::put('/category/{id}', [category::class, "update"])->name('category.update');
     });
 });
+
 Route::get('/blog/destroy/{id}', [BlogPost::class, "destroy"])->middleware('auth')->name('destroy');
 Route::middleware('auth')->group(function () {
-  
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

@@ -62,7 +62,7 @@ export default function Login({ auth, status, canResetPassword }) {
                             onChange={(e) => setData('password', e.target.value)}
                         />
 
-                        <InputError message={errors.password} className="mt-2" />
+                        <InputError message={errors.password} className="mt-2"  />
                     </div>
 
                     <div className="block mt-4">

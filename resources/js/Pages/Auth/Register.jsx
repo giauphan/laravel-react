@@ -37,7 +37,7 @@ export default function Register() {
             <div className="p-5 mx-auto bg-white rounded-[40px] shadow-lg sm:p-10 mt-10 lg:mt-20 lg:p-16 ">
                 <form onSubmit={submit} className='max-w-md mx-auto space-y-6'>
                     <div>
-                        <InputLabel htmlFor="name" value="Name" />
+                        <InputLabel htmlFor="name" value="Họ và tên" />
 
                         <TextInput
                             id="name"
@@ -71,7 +71,7 @@ export default function Register() {
                     </div>
 
                     <div className="mt-4">
-                        <InputLabel htmlFor="password" value="Password" />
+                        <InputLabel htmlFor="password" value="Mật khẩu" />
 
                         <TextInput
                             id="password"
@@ -88,7 +88,7 @@ export default function Register() {
                     </div>
 
                     <div className="mt-4">
-                        <InputLabel htmlFor="password_confirmation" value="Confirm Password" />
+                        <InputLabel htmlFor="password_confirmation" value="Nhập lại mật khẩu" />
 
                         <TextInput
                             id="password_confirmation"

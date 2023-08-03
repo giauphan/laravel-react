@@ -31,12 +31,20 @@ class BlogPost extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required',
-        //     'content' => 'required',
-        //     'hinh' => 'required|image',
-        //     'tomtat' => 'required',
-        // ]);
+      
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'content' => 'required',
+            'hinh' => 'required|image',
+            'tomtat' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+            // return Inertia::to_route('dashboard', [
+            //     'input' => $request->input(),
+            // ]) ->withViewData([  'errors' => $validator->errors()]);
+        }
+       
         $file = $request->file('hinh');
         $imageName = $file->hashName();
         $imagePath = 'assets/images/' . $imageName;

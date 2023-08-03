@@ -22,7 +22,10 @@ export default function Authenticated({ user, header, children }) {
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Dashboard
+                                    TRang ADMIN
+                                </NavLink>
+                                <NavLink href={route('category')} active={route().current('category')}>
+                                    Danh mục
                                 </NavLink>
                             </div>
                         </div>

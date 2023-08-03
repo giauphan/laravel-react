@@ -16,10 +16,10 @@ class DashBoardController extends Controller
             ->select("tin.id as tinID", "tin.lang", "tieuDe", "tomTat", "urlHinh", "ngayDang", "noiDung", "idLT", "xem", "noiBat", "tin.anHien", "tags", "ten")
             ->orderBy("tin.id", "desc")
             ->paginate(8)->withQueryString();
-
+          
         return Inertia::render('Dashboard', [
             'blog' => $blogPosts,
-            'token' =>       $csrfToken
+            'token' =>       $csrfToken,
         ]);
     }
 }
