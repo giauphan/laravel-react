@@ -27,7 +27,7 @@ export default function ConfirmPassword() {
         <GuestLayout>
             <Head title="Confirm Password" />
             <div className="mb-4 text-sm text-gray-600">
-                This is a secure area of the application. Please confirm your password before continuing.
+            Đây là một khu vực an toàn của ứng dụng. Vui lòng xác nhận mật khẩu của bạn trước khi tiếp tục.
             </div>
 
             <form onSubmit={submit}>

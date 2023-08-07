@@ -23,8 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $category = CategoryPost::where('anhien', 1)->orderBy('thuTu', 'asc')->get();
-
         Inertia::share('category', $category);
-        
+
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Blog;
 use App\Models\BlogPost as ModelsBlogPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -29,7 +30,7 @@ class BlogPost extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Blog $request)
     {
       
         $validator = Validator::make($request->all(), [
@@ -82,7 +83,7 @@ class BlogPost extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Blog $request, string $id)
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',

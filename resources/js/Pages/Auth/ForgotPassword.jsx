@@ -20,8 +20,7 @@ export default function ForgotPassword({ status }) {
             <Head title="Forgot Password" />
             <header class="text-center max-w-2xl mx-auto">
             <div className="mb-4 text-sm text-gray-600">
-                Forgot your password? No problem. Just let us know your email address and we will email you a password
-                reset link that will allow you to choose a new one.
+            Quên mật khẩu? Không có gì. Chỉ cần cho chúng tôi biết địa chỉ email của bạn và chúng tôi sẽ gửi email cho bạn liên kết đặt lại mật khẩu cho phép bạn chọn một mật khẩu mới.
             </div>
             </header>
 
