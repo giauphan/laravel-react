@@ -6,15 +6,16 @@ import React, { useEffect } from "react";
 import Header from "./header";
 import Footer from "./footer";
 import ImageLoader from "@/Components/ImageLoad";
+import Comment from "@/Components/comment";
 
 
-const Description = ({ blogPosts, category ,auth}) => {
-   
+const Description = ({ blogPosts, category, auth, comment = [], token }) => {
+
     return (
         <>
-       
+
             <Head title='chi tiết bài viết' />
-            <Header auth={auth} categorys={category}/>
+            <Header auth={auth} categorys={category} />
             <HeaderBlog BlogID={blogPosts}>
 
             </HeaderBlog>
@@ -50,8 +51,16 @@ const Description = ({ blogPosts, category ,auth}) => {
                         </div>
                     </div>
                 </div>
+                <div>
+                    <strong className="mb-40"><h2>Bình luận</h2></strong>
+                </div>
+                <div className="mb-10">
+                    <Comment comment={comment} token={token} postId={blogPosts.tinID}/>
+                </div>
+
             </main>
-   <ImageLoader/>
+            <ImageLoader />
+
             <Footer />
         </>
     )

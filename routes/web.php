@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BlogPost;
 use App\Http\Controllers\Admin\category;
 use App\Http\Controllers\Admin\DashBoardController;
 use App\Http\Controllers\client\Blog;
+use App\Http\Controllers\client\commentController;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -41,7 +42,7 @@ Route::middleware(['auth', 'verified', UsersRole::class . ':1'])->group(function
 
 Route::get('/blog/destroy/{id}', [BlogPost::class, "destroy"])->middleware('auth')->name('destroy');
 Route::middleware('auth')->group(function () {
-
+    Route::post('/binhluan', [commentController::class, 'store'])->name('binhluan');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
