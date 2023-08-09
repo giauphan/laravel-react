@@ -41,7 +41,8 @@ class Blog extends Controller
             [
                 'token' =>       $csrfToken,
                 'blogPosts' => $blogPosts,
-                'comment'=>$comments
+                'comment'=>$comments,
+                'blogid'=>$id
             ]
         );
     }

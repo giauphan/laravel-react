@@ -46,7 +46,7 @@ const Comment = ({ comment, level = 0, token = null, postId }) => {
 
                     <div className="max-h-44" style={{ overflowY: "auto", height: "700px" }}>
                         <h2 className='text-center'>Post a Comment</h2>
-                        <PostComment parent_id={(selectedRow.parent_id ? selectedRow.parent_id : selectedRow.id )} hoTen={selectedRow.hoTen} postId_blog={selectedRow.idTin} csrfToken={token} />
+                        <PostComment parent_id={(selectedRow.parent_id ? selectedRow.parent_id : selectedRow.id )} hoTen={selectedRow.hoTen} postId_blog={!selectedRow.idTin ? postId : selectedRow.idTin} csrfToken={token} />
                     </div>
                 </Modal>
             )}

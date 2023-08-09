@@ -45,6 +45,7 @@ const PostComment = ({ postId_blog, csrfToken, parent_id, hoTen }) => {
                             content: data,
                         }));
                     }}
+                    
                 />
                 <InputError message={errors.content} className="mt-2 text-red-600" />
                 <PrimaryButton className="mt-10" disabled={false /* Add any conditions for disabling the button here */}>

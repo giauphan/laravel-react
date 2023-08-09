@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\comment;
 use App\Models\Comment as ModelsComment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -16,7 +17,7 @@ class commentController extends Controller
         return Inertia::render('comments.index', compact('comments'));
     }
 
-    public function store(Request $request)
+    public function store(comment $request)
     {
         $validator = Validator::make($request->all(), [
             'content' => 'required',
