@@ -29,7 +29,7 @@ class Blog extends Controller
     { 
         $comments = Comment::where('idTin', $id)
         ->whereNull('parent_id')
-        ->with('replies')
+        // ->with('replies')
         ->get();
         $csrfToken = csrf_token();
         $blogPosts = BlogPost::where('tin.id', $id)
