@@ -9,14 +9,14 @@ import ImageLoader from "@/Components/ImageLoad";
 import Comment from "@/Components/comment";
 
 
-const Description = ({ blogPosts, category, auth, comment = [], token }) => {
+const Description = ({ blogPosts, category, auth, comment = [], token,ViewandLike = 0}) => {
 
     return (
         <>
 
             <Head title='chi tiết bài viết' />
             <Header auth={auth} categorys={category} />
-            <HeaderBlog BlogID={blogPosts}>
+            <HeaderBlog BlogID={blogPosts}view={ViewandLike} >
 
             </HeaderBlog>
             <main className="container relative mt-16">

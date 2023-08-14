@@ -15,9 +15,8 @@ class Blog extends Controller
     public function index()
     {
         $blogPosts = BlogPost::join('loaitin', 'loaitin.id', '=', 'tin.idLT')
-        ->select("tin.id as tinID", "tin.lang", "tieuDe", "tomTat", "urlHinh", "ngayDang", "noiDung", "idLT", "xem", "noiBat", "tin.anHien", "tags", "ten")
-        ->paginate(8)->withQueryString();
-
+            ->select("tin.id as tinID", "tin.lang", "tieuDe", "tomTat", "urlHinh", "ngayDang", "noiDung", "idLT", "xem", "noiBat", "tin.anHien", "tags", "ten")
+            ->paginate(8)->withQueryString();
         return Inertia::render(
             'Blog',
             [
@@ -25,14 +24,40 @@ class Blog extends Controller
             ]
         );
     }
-    public function BlogDescription($id)
-    { 
-        $comments = Comment::where('idTin', $id)
-        ->whereNull('parent_id')
-        // ->with('replies')
-        ->get();
+    public function BlogDescription(BlogPost $blog)
+    {
+        // dd($blog->id);
+        $ViewandLike = session('ViewandLike', []);
+
+        if (isset($ViewandLike[$blog->id])) {
+            // Increment the xem if the blog is already in the array
+            $ViewandLike[$blog->id]['xem']++;
+        } else {
+            // Add the blog to the array with xem of 1
+            $ViewandLike[$blog->id] = [
+                'id' => $blog->id,
+                'xem' => 1,
+            ];
+        }
+        foreach ($ViewandLike as $item) {
+            BlogPost::updateOrCreate(
+                [
+                    'id' => $item['id'],
+                ],
+                [
+                    'xem' => $item['xem'],
+
+                ]
+            );
+        }
+        session(['ViewandLike' => $ViewandLike]); 
+
+        $comments = Comment::where('idTin', $blog->id)
+            ->whereNull('parent_id')
+            ->with('replies')
+            ->get();
         $csrfToken = csrf_token();
-        $blogPosts = BlogPost::where('tin.id', $id)
+        $blogPosts = BlogPost::where('tin.id', $blog->id)
             ->join('loaitin', 'loaitin.id', '=', 'tin.idLT')
             ->select("tin.id as tinID", "tin.lang", "tieuDe", "tomTat", "urlHinh", "ngayDang", "noiDung", "idLT", "xem", "noiBat", "tin.anHien", "tags", "ten")
             ->first();
@@ -41,8 +66,9 @@ class Blog extends Controller
             [
                 'token' =>       $csrfToken,
                 'blogPosts' => $blogPosts,
-                'comment'=>$comments,
-                'blogid'=>$id
+                'comment' => $comments,
+                'blogid' => $blog->id,
+                'ViewandLike' =>   $ViewandLike[$blog->id]['xem']
             ]
         );
     }
@@ -54,7 +80,7 @@ class Blog extends Controller
             ->select("tin.id as tinID", "tin.lang", "tieuDe", "tomTat", "urlHinh", "ngayDang", "noiDung", "idLT", "xem", "noiBat", "tin.anHien", "tags", "ten")
             ->paginate(8)->withQueryString();;
         $category = CategoryPost::where('anhien', 1)->where('id', $id)->first();
-        
+
         return Inertia::render(
             'BlogCategory',
             [

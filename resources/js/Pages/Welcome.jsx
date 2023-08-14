@@ -37,12 +37,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion, blogPosts, c
                                         </div>
                                     </a>
                                     <div className="flex items-center justify-between mt-auto">
-                                        <div className="nc-PostCardLikeAndComment flex items-center space-x-2 " data-nc-id="PostCardLikeAndComment"><button className="nc-PostCardLikeAction relative min-w-[68px] flex items-center rounded-full leading-none group transition-colors px-3 h-8 text-xs focus:outline-none text-rose-600 bg-rose-50 dark:bg-rose-100" title="Liked" data-nc-id="PostCardLikeAction" fdprocessedid="8rhc6a"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <div className="nc-PostCardLikeAndComment flex items-center space-x-2 " data-nc-id="PostCardLikeAndComment"><button className="nc-PostCardLikeAction relative min-w-[68px] flex items-center rounded-full leading-none group transition-colors px-3 h-8 text-xs focus:outline-none text-black-600 bg-rose-50 dark:bg-rose-100" title="Liked" data-nc-id="PostCardLikeAction" fdprocessedid="8rhc6a">
+                                            {/* <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                                             <path stroke="currentColor"
                                                 strokeLinecap="round"
                                                 strokeLinejoin="round"
                                                 strokeWidth={1} d="M11.995 7.23319C10.5455 5.60999 8.12832 5.17335 6.31215 6.65972C4.49599 8.14609 4.2403 10.6312 5.66654 12.3892L11.995 18.25L18.3235 12.3892C19.7498 10.6312 19.5253 8.13046 17.6779 6.65972C15.8305 5.18899 13.4446 5.60999 11.995 7.23319Z" clipRule="evenodd"></path>
-                                        </svg><span className="ml-1 text-rose-600">{blogOutstand.xem}</span></button>
+                                        </svg> */}
+                                 <strong>Lượt xem</strong>       <span className="ml-1 text-black">{blogOutstand.xem}</span></button>
                                             {/* <a className="nc-PostCardCommentBtn relative items-center min-w-[68px] rounded-full text-neutral-6000 bg-neutral-50 transition-colors dark:text-neutral-760 hover:bg-teal-50 dark:hover:bg-teal-100 hover:text-teal-600 dark:hover:text-teal-500 hidden sm:flex  px-3 h-8 text-xs focus:outline-none" title="Comments" data-nc-id="PostCardCommentBtn" href={`/blog/${blogOutstand.tinID}`}><svg width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                 <path stroke="currentColor"
                                                     strokeLinecap="round"
@@ -78,7 +80,6 @@ export default function Welcome({ auth, laravelVersion, phpVersion, blogPosts, c
                                     <div className="nc-NextPrev relative flex items-center text-neutral-900 dark:text-neutral-760 " data-nc-id="NextPrev" data-glide-el="controls">
                                         <button className="w-11 h-11 text-xl mr-[6px] bg-white  border border-neutral-200 dark:border-neutral-6000 dark:hover:border-neutral-500 rounded-full flex items-center justify-center hover:border-neutral-300 focus:outline-none" title="Prev" data-glide-dir="<" fdprocessedid="tep5i8">
                                             <FontAwesomeIcon icon={faAngleLeft} />
-
                                         </button>
                                         <button className="w-11 h-11 text-xl bg-white  border border-neutral-200 dark:border-neutral-6000 dark:hover:border-neutral-500 rounded-full flex items-center justify-center hover:border-neutral-300 focus:outline-none" title="Next" data-glide-dir=">" fdprocessedid="okrj0m">
                                             <FontAwesomeIcon icon={faAngleRight} />

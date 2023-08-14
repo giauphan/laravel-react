@@ -63,7 +63,10 @@ const HomeAdmin = ({ Blog, token, success ,errors,input}) => {
                 {/* Render the Modal component and pass necessary props */}
                 <Modal show={isModalOpen} onClose={handleCloseModal}>
                     {/* Put your modal content here */}
+                    <div className="max-h-44" style={{ overflowY: "auto", height: "700px" }}>
                     <AddBlog csrfToken={token} />
+                    </div>
+                 
 
                 </Modal>
                 <hr className="mt-5 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>

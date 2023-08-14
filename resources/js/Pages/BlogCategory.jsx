@@ -22,7 +22,6 @@ const Blogcategory = ({ auth, categoryOne, blogPosts ,category}) => {
                     </div>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-8 lg:mt-10">
                         <BlogView Blogs={blogPosts} />
-                        
                     </div>
                     <div className="mt-10"> 
                     <Pagination blogPosts={blogPosts} path="/category"/>

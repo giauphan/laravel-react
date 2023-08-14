@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\BlogPost;
 use Illuminate\Console\Command;
 
 class ViewandLike extends Command
@@ -25,9 +26,18 @@ class ViewandLike extends Command
      */
     public function handle()
     {
-      $view = session()->has('view') ? session('view') : 0;
-      $like = session()->has('like') ? session('like') : 0;
+        // $ViewandLike = session('ViewandLike', []);
+        // dd( $ViewandLike );
+        // foreach ($ViewandLike as $item) {
+        //     BlogPost::updateOrCreate(
+        //         [
+        //             'id' => $item['id'],
+        //         ],
+        //         [
+        //             'xem' => $item['xem'],
 
-      
+        //         ]
+        //     );
+        // }
     }
 }

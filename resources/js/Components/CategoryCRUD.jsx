@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Pagination from './Pagination';
 import Modal from './Modal';
 import PostCategoryUpdate from './formUpdate';
+import PostBlog from './FormBlog';
 
 const useModal = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);

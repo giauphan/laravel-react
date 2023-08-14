@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('HomePage');
 // Route::get('/blog', [Blog::class, 'index']);
-Route::get('/blog/{id}', [Blog::class, 'BlogDescription'])->name('Blog.description');
+Route::get('/blog/{blog}', [Blog::class, 'BlogDescription'])->name('Blog.description');
 Route::get('/category/{id}', [Blog::class, 'BlogCategory'])->name('Blog.BlogCategory');
 Route::get('/te', function () {
     return view('footer_only');

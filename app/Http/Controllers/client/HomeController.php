@@ -15,6 +15,7 @@ class HomeController extends Controller
     {
         $blogPosts = BlogPost::join('loaitin', 'loaitin.id', '=', 'tin.idLT')
             ->select('tin.id as tinID', 'tin.lang', 'tieuDe', 'tomTat', 'urlHinh', 'ngayDang', 'noiDung', 'tin.idLT', 'xem', 'noiBat', 'tin.anHien', 'tags', 'loaitin.ten')
+            ->orderBy('ngayDang','desc')
             ->paginate(3)->withQueryString();
         $blogOutstand = BlogPost::join('loaitin', 'loaitin.id', '=', 'tin.idLT')
         ->select('tin.id as tinID', 'tin.lang', 'tieuDe', 'tomTat', 'urlHinh', 'ngayDang', 'noiDung', 'idLT', 'xem', 'noiBat', 'tin.anHien', 'tags', 'loaitin.ten')->where('noibat', 1)->orderBy('ngayDang', 'desc')->first();

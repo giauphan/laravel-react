@@ -1,7 +1,7 @@
 import React from "react";
 import formatDate from "./FormartTime";
 
-const HeaderBlog = ({BlogID}) => {
+const HeaderBlog = ({BlogID,view}) => {
     return (
         <>
             <header className="relative pt-16 z-10 md:py-20 lg:py-28 bg-neutral-900 dark:bg-black">
@@ -30,7 +30,7 @@ const HeaderBlog = ({BlogID}) => {
 
                                             <div className="text-xs mt-[6px]"><span
                                                 className="text-neutral-700 dark:text-neutral-300 ">{formatDate(BlogID.ngayDang)}</span><span
-                                                    className="mx-2 font-semibold">·</span></div>
+                                                    className="mx-2 font-semibold"></span></div>
                                         </div>
                                     </div>
                                     <div className="nc-SingleMetaAction2 ">
@@ -38,13 +38,16 @@ const HeaderBlog = ({BlogID}) => {
                                             <div className="nc-PostCardLikeAndComment flex items-center !space-x-2.5"
                                                 data-nc-id="PostCardLikeAndComment"><button
                                                     className="nc-PostCardLikeAction relative min-w-[68px] flex items-center rounded-full leading-none group transition-colors px-4 h-9 text-sm focus:outline-none text-rose-600 bg-rose-50 dark:bg-rose-100"
-                                                    title="Liked" data-nc-id="PostCardLikeAction"><svg width="24" height="24"
+                                                    title="Liked" data-nc-id="PostCardLikeAction"
+                                                    >
+                                                        {/* <svg width="24" height="24"
                                                         fill="currentColor" viewBox="0 0 24 24">
                                                         <path fill-rule="evenodd" stroke="currentColor" stroke-linecap="round"
                                                             stroke-linejoin="round" stroke-width="1"
                                                             d="M11.995 7.23319C10.5455 5.60999 8.12832 5.17335 6.31215 6.65972C4.49599 8.14609 4.2403 10.6312 5.66654 12.3892L11.995 18.25L18.3235 12.3892C19.7498 10.6312 19.5253 8.13046 17.6779 6.65972C15.8305 5.18899 13.4446 5.60999 11.995 7.23319Z"
                                                             clip-rule="evenodd"></path>
-                                                    </svg><span className="ml-1 text-rose-600">{BlogID.xem}</span></button>
+                                                    </svg> */}
+                                                  Lượt xem: <span className="ml-1 text-rose-600">{view}</span></button>
 
                                             </div>
                                             <div className="px-1">
