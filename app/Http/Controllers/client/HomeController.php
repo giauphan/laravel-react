@@ -19,6 +19,7 @@ class HomeController extends Controller
             ->paginate(3)->withQueryString();
         $blogOutstand = BlogPost::join('loaitin', 'loaitin.id', '=', 'tin.idLT')
         ->select('tin.id as tinID', 'tin.lang', 'tieuDe', 'tomTat', 'urlHinh', 'ngayDang', 'noiDung', 'idLT', 'xem', 'noiBat', 'tin.anHien', 'tags', 'loaitin.ten')->where('noibat', 1)->orderBy('ngayDang', 'desc')->first();
+        // dd($blogOutstand.tinID);
         return Inertia::render('Welcome', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
